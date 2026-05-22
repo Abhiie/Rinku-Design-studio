@@ -1,0 +1,6 @@
+{
+  "name": "Rinku Design Studio",
+  "description": "High-end interior design and architecture studio specializing in high-end classic and modern hospitality, residential, and commercial spaces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
