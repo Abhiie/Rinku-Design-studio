@@ -50,7 +50,7 @@ export default function Footer({ onNavigateHome }: FooterProps) {
   return (
     <footer
       id="rds-footer"
-      className="bg-[#0A0A0A] text-[#F8F5F0] border-t border-[var(--color-gold)]/20 pt-20 pb-10 relative select-none"
+      className="bg-[#0A0A0A] text-[#F8F5F0] border-t border-[var(--color-gold)]/20 pt-20 pb-16 relative select-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col">
         {/* Row 1 — Information grid */}
@@ -68,7 +68,7 @@ export default function Footer({ onNavigateHome }: FooterProps) {
               Designing Spaces That Breathe.
             </p>
             <p className="font-jost font-light text-xs text-[var(--text-muted)] leading-relaxed max-w-sm">
-              We translate personal stories and cultural aesthetics into immaculate architectural designs. Specializing in high-end classic and modern environments.
+              Founded by Kunal Patel in 2023. Commercial &amp; residential interiors across Ahmedabad and Gandhinagar — delivered with 95%+ 3D-to-Real accuracy and zero vendor commissions.
             </p>
           </div>
 
@@ -143,9 +143,9 @@ export default function Footer({ onNavigateHome }: FooterProps) {
         <div className="h-[1px] bg-[var(--color-gold)]/10 w-full mb-8" />
 
         {/* Row 3 — Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between h-[60px] font-jost text-[10px] tracking-[1px] opacity-50 uppercase select-none">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between py-4 font-jost text-[10px] tracking-[1px] opacity-50 uppercase select-none">
           <div>
-            &copy; 2026 Rinku Design Studio. All rights reserved.
+            &copy; 2025 Rinku Design Studio. All rights reserved.
           </div>
           <div className="flex items-center space-x-1">
             <span>Designed with</span>

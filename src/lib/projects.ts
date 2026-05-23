@@ -62,7 +62,7 @@ export const projects: Project[] = [
     year: 2023,
     colorA: "#0d1b1e",
     colorB: "#1a3a3a",
-    image: "https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1000",
     style: "Japandi Wellness",
     materials: "Teak, Travertine, Linen",
     testimonial: {

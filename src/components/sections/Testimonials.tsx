@@ -129,32 +129,27 @@ export default function Testimonials() {
          </div>
        </div>
 
-      {/* Trust Badges stats */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-8 border-t border-b border-[var(--border-color)]/20 text-center text-[var(--text-color)] font-jost">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 py-8 border-t border-b border-[var(--border-color)]/20 text-center text-[var(--text-color)] font-jost divide-x divide-[var(--border-color)]/20">
           
-          <div className="flex flex-col items-center">
-            <span className="text-sm font-medium tracking-[0.1em] text-[var(--text-color)] uppercase">
-              4.9/5 ★ Average Rating
-            </span>
+          <div className="flex flex-col items-center px-4">
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">4.9</span>
+            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Avg Rating ★</span>
           </div>
 
-          <div className="flex flex-col items-center border-l lg:border-l border-[var(--border-color)]/20">
-            <span className="text-sm font-medium tracking-[0.1em] text-[var(--text-color)] uppercase">
-              120+ Projects Delivered
-            </span>
+          <div className="flex flex-col items-center px-4">
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">120+</span>
+            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Projects</span>
           </div>
 
-          <div className="flex flex-col items-center border-l-[1px] border-[var(--border-color)]/20 col-span-1">
-            <span className="text-sm font-medium tracking-[0.1em] text-[var(--text-color)] uppercase">
-              8 Years of Excellence
-            </span>
+          <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">8+</span>
+            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Years</span>
           </div>
 
-          <div className="flex flex-col items-center border-l lg:border-l border-[var(--border-color)]/20">
-            <span className="text-sm font-medium tracking-[0.1em] text-[var(--text-color)] uppercase">
-              100% Client Satisfaction
-            </span>
+          <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">100%</span>
+            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Satisfaction</span>
           </div>
 
         </div>

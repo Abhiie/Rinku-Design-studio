@@ -121,7 +121,7 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-45 bg-[var(--bg-color)] flex flex-col justify-center px-12 md:hidden"
+            className="fixed inset-0 z-[49] bg-[var(--bg-color)] flex flex-col justify-center px-12 md:hidden"
           >
             {/* Elegant faint logo in mobile overlay */}
             <div className="absolute top-24 left-12 font-cormorant text-7xl font-bold opacity-5 text-[var(--color-gold)]">

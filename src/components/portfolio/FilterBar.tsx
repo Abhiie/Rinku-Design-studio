@@ -53,7 +53,7 @@ export default function FilterBar({
             className="bg-transparent border-b border-[var(--border-color)] text-[13px] font-light font-jost py-1.5 focus:outline-none focus:border-[var(--color-gold)] text-[var(--text-color)] cursor-pointer"
           >
             {categories.map((cat) => (
-              <option key={cat} value={cat} className="bg-neutral-900 text-[#F8F5F0]">
+              <option key={cat} value={cat} className="bg-[var(--card-color)] text-[var(--text-color)]">
                 {cat}
               </option>
             ))}
@@ -71,7 +71,7 @@ export default function FilterBar({
             className="bg-transparent border-b border-[var(--border-color)] text-[13px] font-light font-jost py-1.5 focus:outline-none focus:border-[var(--color-gold)] text-[var(--text-color)] cursor-pointer"
           >
             {budgets.map((b) => (
-              <option key={b.value} value={b.value} className="bg-neutral-900 text-[#F8F5F0]">
+              <option key={b.value} value={b.value} className="bg-[var(--card-color)] text-[var(--text-color)]">
                 {b.label}
               </option>
             ))}
@@ -89,7 +89,7 @@ export default function FilterBar({
             className="bg-transparent border-b border-[var(--border-color)] text-[13px] font-light font-jost py-1.5 focus:outline-none focus:border-[var(--color-gold)] text-[var(--text-color)] cursor-pointer"
           >
             {durations.map((d) => (
-              <option key={d.value} value={d.value} className="bg-neutral-900 text-[#F8F5F0]">
+              <option key={d.value} value={d.value} className="bg-[var(--card-color)] text-[var(--text-color)]">
                 {d.label}
               </option>
             ))}

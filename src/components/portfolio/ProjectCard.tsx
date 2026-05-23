@@ -95,26 +95,27 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
       </div>
 
       {/* Bottom Information Segment */}
-      <div className="p-3 bg-[#111] flex flex-col justify-between">
+      <div className="p-4 bg-[var(--surface-color)] flex flex-col justify-between border-t border-[var(--border-color)]/20">
         <div>
           {/* Project Title */}
-          <h3 className="font-cormorant text-[18px] tracking-wide text-[var(--text-color)] mb-1">
+          <h3 className="font-cormorant text-[19px] tracking-wide text-[var(--text-color)] mb-1 leading-tight">
             {project.name}
           </h3>
 
           {/* Accent Gold Location label & Specs */}
-          <div className="text-[10px] uppercase tracking-[1px] text-[var(--text-color)] opacity-60 mb-2">
+          <div className="text-[10px] uppercase tracking-[1px] text-[var(--text-muted)] mb-3">
             {project.category} &bull; {project.location}
           </div>
         </div>
 
-        <div>
-          {/* Bottom Right CTA Trigger link */}
-          <div className="text-right mt-2">
-            <span className="inline-block text-[10px] font-medium font-jost tracking-[1px] opacity-60 uppercase group-hover:text-[var(--color-gold)] transition-all">
-              View &mdash;&gt;
-            </span>
+        {/* Bottom row: Stars + CTA */}
+        <div className="flex items-center justify-between mt-1">
+          <div className="flex items-center space-x-0.5">
+            {renderStars(project.rating)}
           </div>
+          <span className="inline-block text-[10px] font-medium font-jost tracking-[1.5px] text-[var(--text-muted)] uppercase group-hover:text-[var(--color-gold)] transition-colors duration-300">
+            View &mdash;&gt;
+          </span>
         </div>
       </div>
     </motion.div>

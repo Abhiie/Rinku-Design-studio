@@ -72,7 +72,7 @@ export default function Contact() {
               Let's Create Something Beautiful Together
             </h3>
             <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed max-w-md relative z-10">
-              Arrange your complimentary master planning session with Rinku Sharma. We discuss spacing flow maps, texture boards, and budget allocations.
+              Arrange your complimentary consultation with Kunal Patel. We discuss your space requirements, design preferences, and budget — with complete transparency from day one.
             </p>
 
             {/* Address cards */}
@@ -82,7 +82,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-[10px] uppercase font-light tracking-widest text-[var(--text-muted)] mb-1">STUDIO ATELIER</h4>
                   <p className="text-sm font-light text-[var(--text-color)] leading-normal">
-                    204, Design House, SG Highway,<br />Ahmedabad, Gujarat 380054
+                    Ahmedabad, Gujarat
                   </p>
                 </div>
               </div>
@@ -205,11 +205,11 @@ export default function Contact() {
                         {...register('projectType')}
                         className="bg-transparent text-sm font-light font-jost py-1 focus:outline-none text-[var(--text-color)] cursor-pointer"
                       >
-                        <option value="Residential" className="bg-neutral-900">Residential</option>
-                        <option value="Commercial" className="bg-neutral-900">Commercial</option>
-                        <option value="Hospitality" className="bg-neutral-900">Hospitality</option>
-                        <option value="Retail" className="bg-neutral-900">Retail</option>
-                        <option value="Other" className="bg-neutral-900">Other</option>
+                        <option value="Residential" className="bg-[var(--card-color)] text-[var(--text-color)]">Residential</option>
+                        <option value="Commercial" className="bg-[var(--card-color)] text-[var(--text-color)]">Commercial</option>
+                        <option value="Hospitality" className="bg-[var(--card-color)] text-[var(--text-color)]">Hospitality</option>
+                        <option value="Retail" className="bg-[var(--card-color)] text-[var(--text-color)]">Retail</option>
+                        <option value="Other" className="bg-[var(--card-color)] text-[var(--text-color)]">Other</option>
                       </select>
                     </div>
 
@@ -222,10 +222,10 @@ export default function Contact() {
                         {...register('budgetRange')}
                         className="bg-transparent text-sm font-light font-jost py-1 focus:outline-none text-[var(--text-color)] cursor-pointer"
                       >
-                        <option value="under-10" className="bg-neutral-900">Under ₹10L</option>
-                        <option value="10-25" className="bg-neutral-900">₹10L–₹25L</option>
-                        <option value="25-50" className="bg-neutral-900">₹25L–₹50L</option>
-                        <option value="over-50" className="bg-neutral-900">₹50L+</option>
+                        <option value="under-10" className="bg-[var(--card-color)] text-[var(--text-color)]">Under ₹10L</option>
+                        <option value="10-25" className="bg-[var(--card-color)] text-[var(--text-color)]">₹10L–₹25L</option>
+                        <option value="25-50" className="bg-[var(--card-color)] text-[var(--text-color)]">₹25L–₹50L</option>
+                        <option value="over-50" className="bg-[var(--card-color)] text-[var(--text-color)]">₹50L+</option>
                       </select>
                     </div>
 
@@ -238,10 +238,10 @@ export default function Contact() {
                         {...register('timeline')}
                         className="bg-transparent text-sm font-light font-jost py-1 focus:outline-none text-[var(--text-color)] cursor-pointer"
                       >
-                        <option value="ASAP" className="bg-neutral-900">ASAP</option>
-                        <option value="1-3" className="bg-neutral-900">1–3 Months</option>
-                        <option value="3-6" className="bg-neutral-900">3–6 Months</option>
-                        <option value="Flexible" className="bg-neutral-900">Flexible</option>
+                        <option value="ASAP" className="bg-[var(--card-color)] text-[var(--text-color)]">ASAP</option>
+                        <option value="1-3" className="bg-[var(--card-color)] text-[var(--text-color)]">1–3 Months</option>
+                        <option value="3-6" className="bg-[var(--card-color)] text-[var(--text-color)]">3–6 Months</option>
+                        <option value="Flexible" className="bg-[var(--card-color)] text-[var(--text-color)]">Flexible</option>
                       </select>
                     </div>
                   </div>
