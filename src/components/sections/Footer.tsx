@@ -58,11 +58,16 @@ export default function Footer({ onNavigateHome }: FooterProps) {
           
           {/* Column 1 Logo & descriptive taglines */}
           <div className="lg:col-span-5 flex flex-col space-y-4">
-            <div className="flex items-center space-x-3">
-              <AnimatedLogo className="w-8 h-8" color="var(--color-gold)" />
-              <span className="font-cormorant text-2xl font-bold tracking-[0.14em] text-[var(--color-gold)]">
-                RINKU
-              </span>
+            <div className="flex items-center gap-3">
+              <AnimatedLogo className="w-9 h-9" color="#ffffff" />
+              <div className="flex flex-col leading-none gap-[3px]">
+                <span className="font-cormorant text-[20px] font-bold tracking-[3px] text-white uppercase leading-none">
+                  Rinku
+                </span>
+                <span className="font-jost text-[9px] font-light tracking-[0.25em] uppercase text-white opacity-70">
+                  Design Studio
+                </span>
+              </div>
             </div>
             <p className="font-cormorant italic text-lg text-[var(--color-gold)] leading-none">
               Designing Spaces That Breathe.

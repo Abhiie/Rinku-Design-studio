@@ -134,22 +134,22 @@ export default function Testimonials() {
           
           <div className="flex flex-col items-center px-4">
             <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">4.9</span>
-            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Avg Rating ★</span>
+            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Avg Rating ★</span>
           </div>
 
           <div className="flex flex-col items-center px-4">
             <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">120+</span>
-            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Projects</span>
+            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Projects</span>
           </div>
 
           <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">
             <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">8+</span>
-            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Years</span>
+            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Years</span>
           </div>
 
           <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">
             <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">100%</span>
-            <span className="text-[10px] font-light tracking-[0.15em] text-[var(--text-muted)] uppercase">Satisfaction</span>
+            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Satisfaction</span>
           </div>
 
         </div>

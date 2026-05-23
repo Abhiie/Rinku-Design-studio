@@ -18,8 +18,8 @@
   --color-gold-light: #E8D5A3;
   --color-gold-dark: #8B6914;
   
-  --font-cormorant: "Georgia", serif;
-  --font-jost: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-jost: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body.light-mode {
@@ -29,6 +29,10 @@ body.light-mode {
   --text-color: #0A0A0A;
   --text-muted: rgba(10, 10, 10, 0.5);
   --border-color: rgba(139, 105, 20, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -65,30 +69,48 @@ body {
 
 /* Keyframe animations mapping */
 @keyframes panGrid {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 80px 80px;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
 }
 
 @keyframes infiniteScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes slowOrbit {
-  0%, 100% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(1.5deg) scale(1.01);
-  }
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(1.5deg) scale(1.01); }
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shimmerGold {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.3); }
+  50% { box-shadow: 0 0 20px 6px rgba(201, 168, 76, 0.15); }
+}
+
+@keyframes revealUp {
+  from { clip-path: inset(100% 0 0 0); opacity: 0; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* Class Helpers */
@@ -97,11 +119,78 @@ body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
+/* Scroll-triggered reveal utilities */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Gold shimmer text effect */
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    var(--color-gold-light) 25%,
+    var(--color-gold) 50%,
+    var(--color-gold-light) 75%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGold 3s linear infinite;
+}
+
+/* Marquee strip */
+.marquee-strip {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 20s linear infinite;
+}
+.marquee-strip:hover {
+  animation-play-state: paused;
+}
+
 /* Interactive elements styles rules */
 input, textarea, select {
   outline: none;
   border-color: var(--border-color);
-  /* Disable autofill highlights */
   -webkit-box-shadow: 0 0 0 1000px transparent inset;
   transition: border-color 0.3s ease;
 }

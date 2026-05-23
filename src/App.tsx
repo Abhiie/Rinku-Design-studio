@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
 import { AnimatePresence, motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 // Imports component models
 import Loader from './components/Loader';
@@ -24,9 +29,20 @@ export default function App() {
   const { done } = useLoaderState();
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
+  // Disable browser scroll restoration
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Let's hook up the Lenis Smooth Scroller on mount
   useEffect(() => {
     if (!done) return;
+
+    // Scroll to top when loader finishes
+    window.scrollTo(0, 0);
 
     const lenis = new Lenis({
       duration: 1.4,
@@ -39,6 +55,13 @@ export default function App() {
     }
 
     requestAnimationFrame(raf);
+
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
@@ -65,10 +88,12 @@ export default function App() {
 
         // If it's a standard scroll segment hash, let's scroll to it nicely
         if (hash) {
-          const element = document.querySelector(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
+          setTimeout(() => {
+            const element = document.querySelector(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
         }
       }
     };
@@ -99,10 +124,12 @@ export default function App() {
     
     if (hash) {
       window.location.hash = hash;
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

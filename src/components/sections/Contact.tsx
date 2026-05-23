@@ -71,7 +71,7 @@ export default function Contact() {
             <h3 className="font-cormorant text-3xl font-semibold text-[var(--text-color)] md:max-w-md leading-snug relative z-10">
               Let's Create Something Beautiful Together
             </h3>
-            <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed max-w-md relative z-10">
+            <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8] max-w-md relative z-10">
               Arrange your complimentary consultation with Kunal Patel. We discuss your space requirements, design preferences, and budget — with complete transparency from day one.
             </p>
 
@@ -298,8 +298,8 @@ export default function Contact() {
                   <h3 className="font-cormorant text-3xl font-semibold text-[var(--text-color)] mb-4 leading-normal">
                     Thank You, {submittedName}!
                   </h3>
-                  <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed max-w-xs">
-                    We have received your design specs. An assistant will contact you in less than <span className="text-[var(--color-gold)] font-medium">24 hours</span> to schedule your call.
+                  <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8] max-w-xs">
+                    We have received your design specs. An assistant will contact you in less than <span className="text-[var(--color-gold)] font-semibold">24 hours</span> to schedule your call.
                   </p>
                 </motion.div>
               )}

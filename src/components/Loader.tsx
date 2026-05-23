@@ -108,7 +108,7 @@ export default function Loader() {
             viewBox="0 0 130 130"
             fill="none"
             stroke="currentColor"
-            className="w-full h-full text-[#C9A84C]"
+            className="w-full h-full text-white"
           >
             <path
               d="M 25 110 L 25 55 L 65 15 L 105 55 L 105 75 L 65 115 L 50 100 L 50 70"

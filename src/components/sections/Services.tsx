@@ -135,7 +135,7 @@ export default function Services() {
                   {service.title}
                 </h3>
                 {/* Desc */}
-                <p className="font-jost font-light text-sm text-[var(--text-muted)] leading-relaxed line-clamp-3">
+                <p className="font-jost font-normal text-[14px] text-[var(--text-color)] opacity-85 leading-[1.8] line-clamp-3">
                   {service.desc}
                 </p>
               </div>
@@ -178,7 +178,7 @@ export default function Services() {
                 <h4 className="font-cormorant text-xl font-medium text-[var(--text-color)] mt-4 mb-2">
                   {step.name}
                 </h4>
-                <p className="font-jost font-light text-xs text-[var(--text-muted)] leading-relaxed">
+                <p className="font-jost font-normal text-[13px] text-[var(--text-color)] opacity-80 leading-[1.8]">
                   {step.desc}
                 </p>
               </motion.div>

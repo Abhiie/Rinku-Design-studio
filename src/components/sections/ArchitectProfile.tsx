@@ -12,7 +12,7 @@ function StatItem({ target, label, suffix = "" }: { target: number; label: strin
       <div className="font-cormorant text-4xl md:text-5xl font-bold text-[var(--color-gold)] mb-1">
         {count}{suffix}
       </div>
-      <div className="font-jost text-[11px] font-light uppercase tracking-[0.15em] text-[var(--text-muted)]">
+      <div className="font-jost text-[12px] font-normal uppercase tracking-[0.15em] text-[var(--text-color)] opacity-80">
         {label}
       </div>
     </div>
@@ -114,15 +114,15 @@ export default function ArchitectProfile() {
             </div>
 
             {/* Bio */}
-            <div className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed flex flex-col space-y-4">
+            <div className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8] flex flex-col space-y-4">
               <p>
                 Kunal Patel founded Rinku Design Studio in November 2023 with a single conviction: that the interior design industry in Gujarat needed to be done differently — with full transparency, zero hidden commissions, and an obsessive focus on delivering exactly what the client signs off on.
               </p>
               <p>
-                In under two years, the studio has delivered <span className="text-[var(--text-color)] font-medium">20+ projects</span> across Ahmedabad and Gandhinagar — each one designed and executed with the same promise: what you approve is what you get.
+                In under two years, the studio has delivered <span className="font-semibold opacity-100">20+ projects</span> across Ahmedabad and Gandhinagar — each one designed and executed with the same promise: what you approve is what you get.
               </p>
               <p>
-                Kunal's approach is built on a rare industry promise: <span className="text-[var(--text-color)] font-medium italic">"You only pay for what you get and what you like."</span> No forced packages. No vendor kick-backs. Just honest design, delivered with precision.
+                Kunal's approach is built on a rare industry promise: <span className="font-semibold italic opacity-100">"You only pay for what you get and what you like."</span> No forced packages. No vendor kick-backs. Just honest design, delivered with precision.
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export default function ArchitectProfile() {
 
             {/* Skill Badges */}
             <div className="pt-2">
-              <h4 className="font-jost text-[11px] font-light uppercase tracking-widest text-[var(--text-muted)] mb-4">
+              <h4 className="font-jost text-[11px] font-normal uppercase tracking-widest text-[var(--text-color)] opacity-70 mb-4">
                 SPECIALIST FIELDS
               </h4>
               <div className="flex flex-wrap gap-3">

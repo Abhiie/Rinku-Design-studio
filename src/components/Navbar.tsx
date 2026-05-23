@@ -58,12 +58,17 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
               {/* Logo */}
               <button
                 onClick={() => handleLinkClick('#home')}
-                className="z-50 cursor-pointer flex items-center space-x-3"
+                className="z-50 cursor-pointer flex items-center gap-3"
               >
-                <AnimatedLogo className="w-8 h-8" color="var(--color-gold)" />
-                <span className="font-cormorant text-[32px] font-bold text-[var(--color-gold)] tracking-[2px] transition-colors duration-300">
-                  RINKU
-                </span>
+                <AnimatedLogo className="w-9 h-9" color="var(--text-color)" />
+                <div className="flex flex-col leading-none gap-[3px]">
+                  <span className="font-cormorant text-[20px] font-bold text-[var(--text-color)] tracking-[3px] transition-colors duration-300 uppercase leading-none">
+                    Rinku
+                  </span>
+                  <span className="font-jost text-[9px] font-light text-[var(--text-color)] tracking-[0.25em] uppercase opacity-70">
+                    Design Studio
+                  </span>
+                </div>
               </button>
 
               {/* Desktop Nav Links */}

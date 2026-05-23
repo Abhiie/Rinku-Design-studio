@@ -64,15 +64,15 @@ export default function BrandStory() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
             <motion.div {...fadeUp(0.25)} className="flex flex-col space-y-5">
-              <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed">
-                Rinku Design Studio was born in <span className="text-[var(--text-color)] font-medium">November 2023</span> from a simple but powerful belief — that great interior design should be accessible, transparent, and transformative. Founded by{' '}
-                <span className="text-[var(--color-gold)] font-medium">Kunal Patel</span>, the studio set out to challenge how interior design is done and sold in Gujarat.
+              <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8]">
+                Rinku Design Studio was born in <span className="font-semibold opacity-100">November 2023</span> from a simple but powerful belief — that great interior design should be accessible, transparent, and transformative. Founded by{' '}
+                <span className="text-[var(--color-gold)] font-semibold opacity-100">Kunal Patel</span>, the studio set out to challenge how interior design is done and sold in Gujarat.
               </p>
-              <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed">
-                In just under two years, we've delivered <span className="text-[var(--text-color)] font-medium">20+ projects</span> across Ahmedabad and Gandhinagar — each one different, each one exactly as promised.
+              <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8]">
+                In just under two years, we've delivered <span className="font-semibold opacity-100">20+ projects</span> across Ahmedabad and Gandhinagar — each one different, each one exactly as promised.
               </p>
-              <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed">
-                We work across both <span className="text-[var(--text-color)] font-medium">commercial and residential</span> spaces: shops, showrooms, offices, flats, and bungalows — with one simple promise that defines everything we do.
+              <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8]">
+                We work across both <span className="font-semibold opacity-100">commercial and residential</span> spaces: shops, showrooms, offices, flats, and bungalows — with one simple promise that defines everything we do.
               </p>
 
               {/* Memory Hook #2 */}
@@ -100,8 +100,8 @@ export default function BrandStory() {
                 <h4 className="font-cormorant text-2xl font-semibold text-[var(--text-color)] mb-4 leading-tight">
                   3D-to-Real Accuracy
                 </h4>
-                <p className="font-jost font-light text-sm text-[var(--text-muted)] leading-relaxed">
-                  What you see in the 3D render is <em className="text-[var(--text-color)] not-italic font-medium">exactly</em> what you get in reality. We've built our entire process around eliminating the gap between the design you approve and the space you receive.
+                <p className="font-jost font-normal text-[14px] text-[var(--text-color)] opacity-85 leading-[1.8]">
+                  What you see in the 3D render is <em className="font-semibold not-italic opacity-100">exactly</em> what you get in reality. We've built our entire process around eliminating the gap between the design you approve and the space you receive.
                 </p>
                 <div className="mt-6 pt-5 border-t border-[var(--border-color)]/30">
                   <p className="font-cormorant italic text-lg text-[var(--text-color)] leading-snug">
@@ -134,7 +134,7 @@ export default function BrandStory() {
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-[var(--text-color)]">
               We Do Things Differently
             </h2>
-            <p className="font-jost font-light text-sm text-[var(--text-muted)] mt-4 max-w-xl mx-auto leading-relaxed">
+            <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 mt-4 max-w-xl mx-auto leading-[1.8]">
               Most interior firms earn quietly from your vendors and labourers. We don't. Here's what sets us apart — and why it matters to your project.
             </p>
           </motion.div>
@@ -148,7 +148,7 @@ export default function BrandStory() {
               >
                 <span className="absolute top-5 right-6 font-jost text-xs tracking-widest text-[var(--text-color)] opacity-10 font-bold group-hover:opacity-25 transition-opacity">{d.num}</span>
                 <h4 className="font-cormorant text-2xl font-semibold text-[var(--color-gold)] mb-3 leading-tight">{d.title}</h4>
-                <p className="font-jost font-light text-sm text-[var(--text-muted)] leading-relaxed">{d.desc}</p>
+                <p className="font-jost font-normal text-[14px] text-[var(--text-color)] opacity-85 leading-[1.8]">{d.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -165,7 +165,7 @@ export default function BrandStory() {
               <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-[var(--text-color)] mb-5 leading-tight">
                 Trusted by Brands<br />Across Gujarat
               </h2>
-              <p className="font-jost font-light text-base text-[var(--text-muted)] leading-relaxed mb-6">
+              <p className="font-jost font-normal text-[15px] text-[var(--text-color)] opacity-85 leading-[1.8] mb-6">
                 From diagnostic laboratories to luxury jewellery showrooms, from bustling restaurant kitchens to serene office floors — each project is a new story. Here are some of the names that trusted us to tell it.
               </p>
               <div className="flex flex-wrap gap-3">
