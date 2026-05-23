@@ -138,13 +138,13 @@ export default function Testimonials() {
           </div>
 
           <div className="flex flex-col items-center px-4">
-            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">120+</span>
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">20+</span>
             <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Projects</span>
           </div>
 
           <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">
-            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">8+</span>
-            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Years</span>
+            <span className="font-cormorant text-3xl font-bold text-[var(--color-gold)] mb-1">2023</span>
+            <span className="text-[11px] font-normal tracking-[0.15em] text-[var(--text-color)] opacity-80 uppercase">Est.</span>
           </div>
 
           <div className="flex flex-col items-center px-4 border-t border-[var(--border-color)]/20 lg:border-t-0 mt-4 pt-4 lg:mt-0 lg:pt-0">

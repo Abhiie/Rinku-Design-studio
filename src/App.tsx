@@ -20,6 +20,7 @@ import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import ProjectDetail from './components/portfolio/ProjectDetail';
+import SocialFloat from './components/SocialFloat';
 
 // Imports data schema list
 import { Project, projects } from './lib/projects';
@@ -29,12 +30,18 @@ export default function App() {
   const { done } = useLoaderState();
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
-  // Disable browser scroll restoration
+  // Disable browser scroll restoration — belt + braces approach
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    // Immediate reset
     window.scrollTo(0, 0);
+    // Also after paint — catches browsers that restore scroll in a second pass
+    const raf = requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   // Let's hook up the Lenis Smooth Scroller on mount
@@ -169,6 +176,9 @@ export default function App() {
         {/* Global corporate footer segment elements */}
         <Footer onNavigateHome={handleNavigateHome} />
       </div>
+
+      {/* Floating Instagram + WhatsApp buttons */}
+      <SocialFloat />
 
       {/* Overlay Slider Page for portfolio details */}
       <AnimatePresence>

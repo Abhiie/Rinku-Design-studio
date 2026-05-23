@@ -9,10 +9,48 @@ const fadeUp = (delay = 0) => ({
 });
 
 const clients = [
-  { name: 'Nakoda Diagnostic Laboratory', location: 'Gujarat', type: 'Laboratory', icon: '🔬' },
-  { name: 'Tandoor Story', location: 'Prahladnagar, Ahmedabad', type: 'Restaurant', icon: '🍽️' },
-  { name: 'Bright Stationery', location: 'Navrangpura, Ahmedabad', type: 'Retail', icon: '🖊️' },
-  { name: 'Paraadis Jewellery', location: 'SBR, Ahmedabad', type: 'Showroom', icon: '💎' },
+  {
+    name: 'Nakoda Diagnostic Laboratory',
+    location: 'Gujarat',
+    type: 'Laboratory',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Tandoor Story',
+    location: 'Prahladnagar, Ahmedabad',
+    type: 'Restaurant',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Bright Stationery',
+    location: 'Navrangpura, Ahmedabad',
+    type: 'Retail',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Paraadis Jewellery',
+    location: 'SBR, Ahmedabad',
+    type: 'Showroom',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M6 3h12l4 6-10 13L2 9l4-6z" />
+        <path d="M11 3L8 9l4 13 4-13-3-6" />
+        <path d="M2 9h20" />
+      </svg>
+    ),
+  },
 ];
 
 const differentiators = [
@@ -177,17 +215,23 @@ export default function BrandStory() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {clients.map((c, i) => (
                 <motion.div
                   key={c.name}
                   {...fadeUp(i * 0.1)}
-                  className="p-6 border border-[var(--border-color)]/40 rounded bg-[var(--surface-color)] hover:border-[var(--color-gold)]/50 transition-all duration-300 group"
+                  className="flex items-center gap-4 p-5 border-l-2 border-l-[var(--color-gold)]/60 border border-[var(--border-color)]/30 rounded-r bg-[var(--surface-color)] hover:border-l-[var(--color-gold)] hover:bg-[var(--surface-color)]/80 transition-all duration-300 group"
                 >
-                  <span className="text-2xl block mb-3">{c.icon}</span>
-                  <span className="text-[9px] font-light uppercase tracking-[0.2em] text-[var(--color-gold)] font-jost block mb-1">{c.type}</span>
-                  <h4 className="font-cormorant text-lg font-semibold text-[var(--text-color)] leading-tight mb-1">{c.name}</h4>
-                  <p className="font-jost text-[11px] font-light text-[var(--text-muted)] tracking-wider">{c.location}</p>
+                  {/* Icon box */}
+                  <div className="flex-shrink-0 w-10 h-10 rounded flex items-center justify-center bg-[var(--color-gold)]/10 text-[var(--color-gold)] group-hover:bg-[var(--color-gold)]/20 transition-colors duration-300">
+                    {c.icon}
+                  </div>
+                  {/* Text */}
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-normal uppercase tracking-[0.22em] text-[var(--color-gold)] font-jost block mb-0.5">{c.type}</span>
+                    <h4 className="font-cormorant text-[16px] font-semibold text-[var(--text-color)] leading-tight truncate">{c.name}</h4>
+                    <p className="font-jost text-[11px] font-normal text-[var(--text-color)] opacity-60 tracking-wide mt-0.5">{c.location}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>

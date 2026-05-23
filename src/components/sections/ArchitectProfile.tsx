@@ -129,7 +129,7 @@ export default function ArchitectProfile() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 pt-6 border-t border-[var(--border-color)]">
               <StatItem target={20} label="Projects Delivered" suffix="+" />
-              <StatItem target={2} label="Years in Business" suffix="+" />
+              <StatItem target={2023} label="Est." suffix="" />
               <StatItem target={95} label="3D-to-Real Accuracy" suffix="%" />
               <StatItem target={2} label="Cities Served" suffix="" />
             </div>

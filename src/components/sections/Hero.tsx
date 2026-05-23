@@ -57,10 +57,9 @@ export default function Hero({ onNavigate }: HeroProps) {
   const accentWord = 'Stories.';
 
   const stats = [
-    { value: '120+', label: 'Projects' },
-    { value: '8+', label: 'Years' },
-    { value: '200+', label: 'Happy Clients' },
-    { value: '15+', label: 'Awards' },
+    { value: '20+', label: 'Projects' },
+    { value: 'Est.', label: '2023' },
+    { value: '100%', label: 'Transparency' },
   ];
 
   return (
