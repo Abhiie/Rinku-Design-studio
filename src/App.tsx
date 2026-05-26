@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -6,8 +7,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
+=======
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
+>>>>>>> Stashed changes
 
-// Imports component models
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
@@ -19,17 +23,20 @@ import Services from './components/sections/Services';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
+<<<<<<< Updated upstream
 import ProjectDetail from './components/portfolio/ProjectDetail';
 import SocialFloat from './components/SocialFloat';
 
 // Imports data schema list
 import { Project, projects } from './lib/projects';
+=======
+>>>>>>> Stashed changes
 import { useLoaderState } from './hooks/useLoaderState';
 
 export default function App() {
   const { done } = useLoaderState();
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
+<<<<<<< Updated upstream
   // Disable browser scroll restoration — belt + braces approach
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -51,17 +58,18 @@ export default function App() {
     // Scroll to top when loader finishes
     window.scrollTo(0, 0);
 
+=======
+  // Lenis smooth scroller
+  useEffect(() => {
+    if (!done) return;
+>>>>>>> Stashed changes
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
+    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
+<<<<<<< Updated upstream
 
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
@@ -73,12 +81,16 @@ export default function App() {
     return () => {
       lenis.destroy();
     };
+=======
+    return () => lenis.destroy();
+>>>>>>> Stashed changes
   }, [done]);
 
-  // Hook up window Hash change detector for detailed routing
+  // Section hash scroll
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
+<<<<<<< Updated upstream
       if (hash.startsWith('#project-')) {
         const slug = hash.replace('#project-', '');
         const found = projects.find((p) => p.slug === slug);
@@ -102,41 +114,32 @@ export default function App() {
             }
           }, 100);
         }
+=======
+      if (hash && !hash.startsWith('#project-')) {
+        const element = document.querySelector(hash);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+>>>>>>> Stashed changes
       }
     };
-
     window.addEventListener('hashchange', handleHashChange);
-    // Bind initial load hash if there is one
     handleHashChange();
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const selectProject = (project: Project) => {
-    window.location.hash = `#project-${project.slug}`;
-  };
-
-  const closeProjectDetail = () => {
-    window.location.hash = '#portfolio';
-  };
-
   const handleNavigateHome = (hash?: string) => {
-    if (activeProject) {
-      // close first
-      setActiveProject(null);
-      document.body.style.overflow = '';
-    }
-    
     if (hash) {
       window.location.hash = hash;
+<<<<<<< Updated upstream
       setTimeout(() => {
         const element = document.querySelector(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
+=======
+      const element = document.querySelector(hash);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+>>>>>>> Stashed changes
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -144,38 +147,22 @@ export default function App() {
 
   return (
     <>
-      {/* 5-Second Premium Loader overlay */}
       <Loader />
-
-      {/* Custom Mouse Cursor for Desktop */}
       <CustomCursor />
-
-      {/* Main Container Layout */}
-      <div className={`transition-all duration-500 ${activeProject ? 'blur-sm brightness-75 scale-[0.99] pointer-events-none' : ''}`}>
-        
-        {/* Fixed Navigation Bar panel */}
-        <Navbar onNavigateHome={handleNavigateHome} currentProjectActive={!!activeProject} />
-
+      <div>
+        <Navbar onNavigateHome={handleNavigateHome} currentProjectActive={false} />
         <main id="main-content-scroller">
-          {/* Sections list elements order */}
           <Hero onNavigate={handleNavigateHome} />
-          
           <BrandStory />
-          
           <ArchitectProfile />
-          
-          <Portfolio onSelectProject={selectProject} />
-          
+          <Portfolio />
           <Services />
-          
           <Testimonials />
-          
           <Contact />
         </main>
-
-        {/* Global corporate footer segment elements */}
         <Footer onNavigateHome={handleNavigateHome} />
       </div>
+<<<<<<< Updated upstream
 
       {/* Floating Instagram + WhatsApp buttons */}
       <SocialFloat />
@@ -189,6 +176,8 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+=======
+>>>>>>> Stashed changes
     </>
   );
 }

@@ -1,0 +1,3 @@
+# loft-studio
+Place project images here named: 1.jpeg, 2.jpeg, 3.jpeg ...
+The first image (1.jpeg) is used as the cover/thumbnail.

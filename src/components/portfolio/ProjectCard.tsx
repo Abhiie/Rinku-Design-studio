@@ -3,118 +3,92 @@ import { motion } from 'framer-motion';
 import { Project } from '../../lib/projects';
 
 interface ProjectCardProps {
-  key?: React.Key;
   project: Project;
   onSelect: (project: Project) => void;
+  index: number;
 }
 
-export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
-  
-  // Renders a visual row of stars matching score (e.g. 4.5, 5)
-  const renderStars = (rating: number) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      const isFilled = i <= Math.floor(rating);
-      const isHalf = !isFilled && i - 0.5 <= rating;
-      
-      stars.push(
-        <svg
-          key={i}
-          className="w-3.5 h-3.5 text-[var(--color-gold)]"
-          fill={isFilled ? 'currentColor' : isHalf ? 'url(#half-gold)' : 'none'}
-          stroke="currentColor"
-          strokeWidth="1.5"
-          viewBox="0 0 24 24"
-        >
-          {isHalf && (
-            <defs>
-              <linearGradient id="half-gold" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="50%" stopColor="var(--color-gold)" />
-                <stop offset="50%" stopColor="transparent" stopOpacity="1" />
-              </linearGradient>
-            </defs>
-          )}
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11.48 3.499c.197-.39.73-.39.927 0l2.184 4.327 4.79.71a.547.547 0 01.306.94l-3.468 3.368.817 4.73a.547.547 0 01-.795.579L12 15.827l-4.24 2.214a.547.547 0 01-.795-.579l.817-4.73L3.514 9.544a.547.547 0 01.306-.94l4.79-.71 2.184-4.327z"
-          />
-        </svg>
-      );
-    }
-    return stars;
-  };
+export default function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
+  const coverImage = project.images[0];
+  const photoCount = project.images.length;
 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4 }}
+      layoutId={project.slug}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
       onClick={() => onSelect(project)}
-      className="card-glow group border border-[var(--border-color)] overflow-hidden bg-transparent p-[1px] flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-gold)] cursor-pointer select-none h-full"
+      className="group relative cursor-pointer select-none"
     >
-      {/* Top Gradient Image Area */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden flex items-center justify-center flex-1" style={{ background: 'linear-gradient(135deg, #111 0%, #1A1A1A 100%)' }}>
-        {/* CSS Gradient representing blueprint of project */}
-        <div
-          className="absolute inset-0 transition-transform duration-500 group-hover:scale-105 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${project.image})`,
-            opacity: 0.8
-          }}
-        />
+      {/* Card frame */}
+      <div className="relative overflow-hidden rounded-sm bg-[var(--surface-color)]">
 
-        {/* Abstract Architectural blueprints lines design */}
-        <div className="absolute inset-0 opacity-15 pointer-events-none"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 20%, rgba(201,168,76,0.3) 1px, transparent 1px),
-              linear-gradient(45deg, transparent 49%, var(--color-gold) 50%, transparent 51%)
-            `,
-            backgroundSize: '20px 20px, 40px 40px',
-          }}
-        />
+        {/* Cover image */}
+        <div className="relative aspect-[4/5] overflow-hidden">
+          <img
+            src={coverImage}
+            alt={project.name}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
 
-        {/* Category Label (Gold on translucence) */}
-        <span className="absolute top-4 left-4 text-[9px] font-medium font-jost tracking-[0.2em] uppercase bg-black/60 px-3 py-1.5 rounded text-[var(--color-gold)] border border-[var(--color-gold)]/20">
-          {project.category}
-        </span>
+          {/* Gradient overlay — always visible at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-neutral-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2">
-          {/* Animated Gold + circle */}
-          <div className="w-12 h-12 rounded-full border border-[var(--color-gold)] flex items-center justify-center">
-            <span className="text-xl text-[var(--color-gold)] font-light">+</span>
+          {/* Gold L-corner bracket top-left */}
+          <div className="absolute top-4 left-4 w-6 h-6 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-[1.5px] bg-[var(--color-gold)]" />
+            <div className="absolute top-0 left-0 h-full w-[1.5px] bg-[var(--color-gold)]" />
           </div>
-          <span className="text-[11px] font-light font-jost tracking-[0.25em] text-[var(--color-gold)] uppercase">
-            View Project
+          {/* bottom-right bracket */}
+          <div className="absolute bottom-[72px] right-4 w-6 h-6 pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-full h-[1.5px] bg-[var(--color-gold)] opacity-60" />
+            <div className="absolute bottom-0 right-0 h-full w-[1.5px] bg-[var(--color-gold)] opacity-60" />
+          </div>
+
+          {/* Category badge — top right */}
+          <span className="absolute top-4 right-4 text-[9px] font-medium font-jost tracking-[0.2em] uppercase bg-black/60 backdrop-blur-sm px-3 py-1.5 text-[var(--color-gold)] border border-[var(--color-gold)]/25 rounded-sm">
+            {project.category}
           </span>
-        </div>
-      </div>
 
-      {/* Bottom Information Segment */}
-      <div className="p-4 bg-[var(--surface-color)] flex flex-col justify-between border-t border-[var(--border-color)]/20">
-        <div>
-          {/* Project Title */}
-          <h3 className="font-cormorant text-[19px] tracking-wide text-[var(--text-color)] mb-1 leading-tight">
-            {project.name}
-          </h3>
+          {/* Photo count badge */}
+          <span className="absolute bottom-[80px] left-4 text-[9px] font-light font-jost tracking-widest text-white/60 uppercase flex items-center gap-1.5">
+            <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+            {photoCount} photo{photoCount !== 1 ? 's' : ''}
+          </span>
 
-          {/* Accent Gold Location label & Specs */}
-          <div className="text-[10px] uppercase tracking-[1px] text-[var(--text-muted)] mb-3">
-            {project.category} &bull; {project.location}
+          {/* Hover overlay: "View Gallery" */}
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="flex flex-col items-center space-y-2 translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-full border border-[var(--color-gold)] flex items-center justify-center bg-black/40">
+                <svg className="w-5 h-5 text-[var(--color-gold)]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+              </div>
+              <span className="text-[10px] font-light font-jost tracking-[0.25em] text-[var(--color-gold)] uppercase">
+                View Gallery
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Bottom row: Stars + CTA */}
-        <div className="flex items-center justify-between mt-1">
-          <div className="flex items-center space-x-0.5">
-            {renderStars(project.rating)}
+        {/* Bottom info strip */}
+        <div className="px-4 py-4 bg-[var(--surface-color)] border-t border-[var(--border-color)]/20 flex items-center justify-between">
+          <div>
+            <h3 className="font-cormorant text-[17px] font-semibold text-[var(--text-color)] leading-tight">
+              {project.name}
+            </h3>
+            <p className="font-jost text-[10px] font-light tracking-wider text-[var(--text-muted)] uppercase mt-0.5">
+              {project.location}
+            </p>
           </div>
-          <span className="inline-block text-[10px] font-medium font-jost tracking-[1.5px] text-[var(--text-muted)] uppercase group-hover:text-[var(--color-gold)] transition-colors duration-300">
-            View &mdash;&gt;
+          <span className="font-jost text-[11px] text-[var(--text-muted)] group-hover:text-[var(--color-gold)] transition-colors duration-300 tracking-wider">
+            {project.year}
           </span>
         </div>
       </div>
