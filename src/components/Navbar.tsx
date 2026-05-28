@@ -77,10 +77,10 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
                   <button
                     key={link.name}
                     onClick={() => handleLinkClick(link.hash)}
-                    className="relative group text-[11px] font-light font-jost tracking-[0.2em] uppercase text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1 cursor-pointer"
+                    className="relative group text-[13px] font-medium font-jost tracking-[0.18em] uppercase text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1 cursor-pointer"
                   >
                     {link.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--color-gold)] transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-gold)] transition-all duration-300 group-hover:w-full" />
                   </button>
                 ))}
               </nav>
@@ -141,7 +141,7 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * idx + 0.1 }}
                   onClick={() => handleLinkClick(link.hash)}
-                  className="text-left font-cormorant text-3xl font-light text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1"
+                  className="text-left font-cormorant text-3xl font-medium text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1"
                 >
                   {link.name}
                 </motion.button>

@@ -8,7 +8,7 @@ export default function Loader() {
   const textRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const estRef = useRef<HTMLDivElement>(null);
-  
+
   const { done, setDone } = useLoaderState();
   const [shouldRender, setShouldRender] = useState(true);
 
@@ -144,7 +144,7 @@ export default function Loader() {
           className="text-[10px] font-normal tracking-[0.25em] uppercase text-[#9A9690] font-jost"
           style={{ opacity: 0 }}
         >
-          EST. 2018
+          EST. 2023
         </div>
       </div>
     </div>

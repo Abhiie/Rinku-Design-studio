@@ -4,11 +4,10 @@ export default function ThemeToggle() {
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
-    // Read cached preference on mount
+    // Read cached preference on mount. Default to dark mode.
     const savedTheme = localStorage.getItem('rds-theme');
-    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    if (savedTheme === 'light') {
       setIsLight(true);
       document.body.classList.add('light-mode');
     } else {
