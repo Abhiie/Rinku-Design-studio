@@ -181,7 +181,7 @@ body {
 .marquee-strip {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 20s linear infinite;
+  animation: marqueeScroll 40s linear infinite;
 }
 .marquee-strip:hover {
   animation-play-state: paused;

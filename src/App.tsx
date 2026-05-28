@@ -24,6 +24,7 @@ import SocialFloat from './components/SocialFloat';
 // Imports data schema list
 import { Project, projects } from './lib/projects';
 import { useLoaderState } from './hooks/useLoaderState';
+import ShowcaseExplorer from './components/sections/ShowcaseExplorer';
 
 export default function App() {
   const { done } = useLoaderState();
@@ -74,7 +75,8 @@ export default function App() {
           <Hero onNavigate={handleNavigateHome} />
           <BrandStory />
           <ArchitectProfile />
-          <Portfolio />
+          {/* <Portfolio /> */}
+          <ShowcaseExplorer />
           <Services />
           <Testimonials />
           <Contact />

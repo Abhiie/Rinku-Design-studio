@@ -104,13 +104,13 @@ export default function Hero({ onNavigate }: HeroProps) {
         </div>
 
         {/* Main content */}
-        <div className="relative z-10 max-w-5xl w-full flex flex-col items-center text-center mt-8 px-6">
+        <div className="relative z-10 max-w-5xl w-full flex flex-col items-center text-center mt-6 sm:mt-8 px-6 pt-20 sm:pt-0">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-5 sm:mb-8"
           >
             <span className="w-8 h-[1px] bg-[var(--color-gold)]" />
             <span className="text-[11px] font-light tracking-[0.35em] text-[var(--color-gold)] uppercase font-jost">
@@ -120,7 +120,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           </motion.div>
 
           {/* Character-by-character headline */}
-          <h1 className="font-cormorant font-bold text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] mb-4 overflow-hidden">
+          <h1 className="font-cormorant font-bold text-[2.6rem] xs:text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] mb-4 overflow-hidden">
             <span className="flex flex-wrap justify-center gap-x-4 md:gap-x-5">
               {headlineWords.map((word, wIdx) => (
                 <span key={wIdx} className="inline-block overflow-hidden h-[1.2em]">
@@ -170,7 +170,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: 'easeOut', delay: 1.2 }}
-            className="font-jost font-normal text-[16px] md:text-[17px] text-white/85 max-w-[560px] leading-[1.8] mb-10"
+            className="font-jost font-normal text-[14.5px] md:text-[17px] text-white/85 max-w-[560px] leading-[1.8] mb-6 sm:mb-10"
           >
             We craft interiors that blend timeless elegance with modern sensibility — tailored to the life you want to live.
           </motion.p>
