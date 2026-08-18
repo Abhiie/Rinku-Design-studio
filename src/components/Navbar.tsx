@@ -1,42 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { useLoaderState } from '../hooks/useLoaderState';
 import AnimatedLogo from './AnimatedLogo';
 
-interface NavbarProps {
-  onNavigateHome: (hash?: string) => void;
-  currentProjectActive: boolean;
-}
-
-export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarProps) {
+export default function Navbar() {
   const { done } = useLoaderState();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Home', hash: '#home' },
-    { name: 'Portfolio', hash: '#portfolio' },
-    { name: 'About', hash: '#about' },
-    { name: 'Services', hash: '#services' },
-    { name: 'Contact', hash: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'Portfolio', path: '/portfolio' },
+    { name: '3D Tour', path: '/3d-walkthrough' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const handleLinkClick = (hash: string) => {
-    setMobileMenuOpen(false);
-    onNavigateHome(hash);
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
   };
 
   return (
@@ -56,10 +55,7 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
           >
             <div className="w-full mx-auto px-10 flex items-center justify-between">
               {/* Logo */}
-              <button
-                onClick={() => handleLinkClick('#home')}
-                className="z-50 cursor-pointer flex items-center gap-3"
-              >
+              <Link to="/" className="z-50 cursor-pointer flex items-center gap-3">
                 <AnimatedLogo className="w-9 h-9" color="var(--text-color)" />
                 <div className="flex flex-col leading-none gap-[3px]">
                   <span className="font-cormorant text-[20px] font-bold text-[var(--text-color)] tracking-[3px] transition-colors duration-300 uppercase leading-none">
@@ -69,19 +65,27 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
                     Design Studio
                   </span>
                 </div>
-              </button>
+              </Link>
 
               {/* Desktop Nav Links */}
               <nav className="hidden md:flex items-center space-x-10">
                 {navLinks.map((link) => (
-                  <button
+                  <Link
                     key={link.name}
-                    onClick={() => handleLinkClick(link.hash)}
-                    className="relative group text-[13px] font-medium font-jost tracking-[0.18em] uppercase text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1 cursor-pointer"
+                    to={link.path}
+                    className={`relative group text-[13px] font-medium font-jost tracking-[0.18em] uppercase transition-colors duration-300 py-1 cursor-pointer ${
+                      isActive(link.path)
+                        ? 'text-[var(--color-gold)]'
+                        : 'text-[var(--text-color)] hover:text-[var(--color-gold)]'
+                    }`}
                   >
                     {link.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-gold)] transition-all duration-300 group-hover:w-full" />
-                  </button>
+                    <span
+                      className={`absolute bottom-0 left-0 h-[1.5px] bg-[var(--color-gold)] transition-all duration-300 ${
+                        isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </Link>
                 ))}
               </nav>
 
@@ -135,16 +139,23 @@ export default function Navbar({ onNavigateHome, currentProjectActive }: NavbarP
 
             <nav className="flex flex-col space-y-8">
               {navLinks.map((link, idx) => (
-                <motion.button
+                <motion.div
                   key={link.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * idx + 0.1 }}
-                  onClick={() => handleLinkClick(link.hash)}
-                  className="text-left font-cormorant text-3xl font-medium text-[var(--text-color)] hover:text-[var(--color-gold)] transition-colors duration-300 py-1"
                 >
-                  {link.name}
-                </motion.button>
+                  <Link
+                    to={link.path}
+                    className={`text-left font-cormorant text-3xl font-medium transition-colors duration-300 py-1 block ${
+                      isActive(link.path)
+                        ? 'text-[var(--color-gold)]'
+                        : 'text-[var(--text-color)] hover:text-[var(--color-gold)]'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 

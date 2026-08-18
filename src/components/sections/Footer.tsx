@@ -1,17 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AnimatedLogo from '../AnimatedLogo';
 
-interface FooterProps {
-  onNavigateHome: (hash?: string) => void;
-}
-
-export default function Footer({ onNavigateHome }: FooterProps) {
+export default function Footer() {
   const links = [
-    { name: 'Home', hash: '#home' },
-    { name: 'Portfolio', hash: '#portfolio' },
-    { name: 'About', hash: '#about' },
-    { name: 'Services', hash: '#services' },
-    { name: 'Contact', hash: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'Portfolio', path: '/portfolio' },
+    { name: '3D Tour', path: '/3d-walkthrough' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const services = [
@@ -52,7 +49,7 @@ export default function Footer({ onNavigateHome }: FooterProps) {
               A Gujarat-based interior design studio committed to transparency, precision, and creating spaces that genuinely reflect the people who live and work in them.
             </p>
 
-            {/* Social links (enhanced visual borders & gold transitions) */}
+            {/* Social links */}
             <div className="flex items-center gap-4 pt-3">
               <a
                 href="https://www.instagram.com/rinkudesignstudio/"
@@ -86,13 +83,13 @@ export default function Footer({ onNavigateHome }: FooterProps) {
             </h4>
             <div className="flex flex-col space-y-3.5">
               {links.map((l) => (
-                <button
+                <Link
                   key={l.name}
-                  onClick={() => onNavigateHome(l.hash)}
+                  to={l.path}
                   className="font-jost text-[14.5px] font-normal text-[#D8D3CC] hover:text-white transition-colors duration-200 text-left tracking-wide cursor-pointer w-fit"
                 >
                   {l.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>

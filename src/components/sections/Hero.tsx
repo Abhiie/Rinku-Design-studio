@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLoaderState } from '../../hooks/useLoaderState';
@@ -182,12 +183,12 @@ export default function Hero({ onNavigate }: HeroProps) {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 1.5 }}
             className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full"
           >
-            <button
-              onClick={() => onNavigate('#portfolio')}
-              className="w-full sm:w-auto px-10 py-4 bg-[var(--color-gold)] text-[#0A0A0A] font-jost text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[var(--color-gold-light)] hover:scale-[1.02] active:scale-[0.98] border border-[var(--color-gold)] font-medium cursor-pointer"
+            <Link
+              to="/portfolio"
+              className="w-full sm:w-auto px-10 py-4 bg-[var(--color-gold)] text-[#0A0A0A] font-jost text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[var(--color-gold-light)] hover:scale-[1.02] active:scale-[0.98] border border-[var(--color-gold)] font-medium cursor-pointer text-center"
             >
               Explore Portfolio
-            </button>
+            </Link>
             <button
               onClick={() => onNavigate('#about')}
               className="w-full sm:w-auto px-10 py-4 bg-transparent text-white font-jost text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/10 border border-white/30 hover:border-white/60 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
